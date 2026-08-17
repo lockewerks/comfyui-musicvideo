@@ -96,7 +96,13 @@ anyway.
 | Base model | SDXL start frames, LTX video | SD1.5 with AnimateLCM |
 | Resolution | 1280x704 | 512x512 |
 
-The identity difference is the interesting one. The shot stack generates each
-start frame independently, so the subject's face changes at every cut. This stack
-generates one continuous latent, so the subject persists. Whether that matters
-depends on whether your video has a character in it.
+The identity difference is the interesting one, with a caveat. The shot stack
+generates each start frame independently, so the subject changes completely at
+every cut. This stack generates one continuous latent, so the subject persists
+far better, but it persists as a *concept* rather than as a specific object: over
+a 195 second track a "dark sedan" stayed a dark sedan throughout while the actual
+car changed model and colour two or three times. Better than the shot stack, not
+locked. Locking it needs a reference image, which neither stack does yet.
+
+Measured on a 195.04 s track: 13 segments, 1574 frames, 12 minutes, output
+195.09 s. Sampled across the whole film there was no mud, no black and no melt.

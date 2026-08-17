@@ -35,9 +35,10 @@ Measured on an RTX 4090 24 GB against a 195.04 s track at 512x512.
 The analysis planned 13 segments and 1574 frames at 8.068 fps, which is the rate
 that puts one bar on exactly 16 frames.
 
-- Two segments, 304 frames: **170 s wall time**, about 0.56 s per output frame.
-- Whole track, 1574 frames: about **15 minutes** at that rate.
+- Whole track, 13 segments and 1574 frames: **12 minutes**, about 0.46 s per
+  output frame.
 - Output: 512x512 at 8.068 fps, H.264 with the original audio muxed as AAC.
+  195.09 s of video against 195.04 s of audio. 87 MB.
 
 Generating 1574 frames rather than the shot stack's 4876 is where the saving is.
 Deliver at a higher frame rate by interpolating the finished video, as its own
