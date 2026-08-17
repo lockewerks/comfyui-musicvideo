@@ -1,0 +1,1561 @@
+{
+  "id": "00000000-0000-0000-0000-000000000000",
+  "revision": 0,
+  "last_node_id": 18,
+  "last_link_id": 25,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "LoadAudio",
+      "pos": [
+        60,
+        106
+      ],
+      "size": [
+        300,
+        150
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "audio",
+          "name": "audio",
+          "type": "COMBO",
+          "widget": {
+            "name": "audio"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "audioUI",
+          "name": "audioUI",
+          "type": "AUDIO_UI",
+          "widget": {
+            "name": "audioUI"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "choose file to upload",
+          "name": "upload",
+          "type": "AUDIOUPLOAD",
+          "widget": {
+            "name": "upload"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "AUDIO",
+          "name": "AUDIO",
+          "type": "AUDIO",
+          "links": [
+            1,
+            18
+          ]
+        }
+      ],
+      "title": "Load audio",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.27.0",
+        "Node name for S&R": "LoadAudio"
+      },
+      "widgets_values": [
+        "superfunk.mp3",
+        null,
+        ""
+      ]
+    },
+    {
+      "id": 2,
+      "type": "MVAnalyzeAudio",
+      "pos": [
+        410,
+        106
+      ],
+      "size": [
+        330,
+        399.59375
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "audio",
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 1
+        },
+        {
+          "localized_name": "beats_per_bar",
+          "name": "beats_per_bar",
+          "type": "INT",
+          "widget": {
+            "name": "beats_per_bar"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "grid_mode",
+          "name": "grid_mode",
+          "type": "COMBO",
+          "widget": {
+            "name": "grid_mode"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "bpm_min",
+          "name": "bpm_min",
+          "type": "FLOAT",
+          "widget": {
+            "name": "bpm_min"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "bpm_max",
+          "name": "bpm_max",
+          "type": "FLOAT",
+          "widget": {
+            "name": "bpm_max"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "prior_bpm",
+          "name": "prior_bpm",
+          "type": "FLOAT",
+          "widget": {
+            "name": "prior_bpm"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "downbeat_offset",
+          "name": "downbeat_offset",
+          "type": "INT",
+          "widget": {
+            "name": "downbeat_offset"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "phase_offset_beats",
+          "name": "phase_offset_beats",
+          "type": "FLOAT",
+          "widget": {
+            "name": "phase_offset_beats"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "min_section_seconds",
+          "name": "min_section_seconds",
+          "type": "FLOAT",
+          "widget": {
+            "name": "min_section_seconds"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "analysis",
+          "name": "analysis",
+          "type": "MV_ANALYSIS",
+          "links": [
+            2,
+            5,
+            8,
+            21
+          ]
+        },
+        {
+          "localized_name": "report",
+          "name": "report",
+          "type": "STRING",
+          "links": [
+            3
+          ]
+        },
+        {
+          "localized_name": "tempo",
+          "name": "tempo",
+          "type": "FLOAT",
+          "links": null
+        },
+        {
+          "localized_name": "beat_count",
+          "name": "beat_count",
+          "type": "INT",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MVAnalyzeAudio"
+      },
+      "widgets_values": [
+        4,
+        "rigid",
+        60,
+        200,
+        120,
+        0,
+        0,
+        8
+      ],
+      "title": "Analyse audio"
+    },
+    {
+      "id": 3,
+      "type": "PreviewAny",
+      "pos": [
+        790,
+        106
+      ],
+      "size": [
+        340,
+        300
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "source",
+          "name": "source",
+          "type": "*",
+          "link": 3
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "STRING",
+          "name": "STRING",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "title": "Show analysis report",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.27.0",
+        "Node name for S&R": "PreviewAny"
+      },
+      "widgets_values": [
+        null,
+        null,
+        false
+      ]
+    },
+    {
+      "id": 4,
+      "type": "MVADSegmentPlan",
+      "pos": [
+        60,
+        582
+      ],
+      "size": [
+        340,
+        427.59375
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "analysis",
+          "name": "analysis",
+          "type": "MV_ANALYSIS",
+          "link": 2
+        },
+        {
+          "localized_name": "frame_rate_mode",
+          "name": "frame_rate_mode",
+          "type": "COMBO",
+          "widget": {
+            "name": "frame_rate_mode"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "context_length",
+          "name": "context_length",
+          "type": "INT",
+          "widget": {
+            "name": "context_length"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "manual_fps",
+          "name": "manual_fps",
+          "type": "FLOAT",
+          "widget": {
+            "name": "manual_fps"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "width",
+          "name": "width",
+          "type": "INT",
+          "widget": {
+            "name": "width"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "height",
+          "name": "height",
+          "type": "INT",
+          "widget": {
+            "name": "height"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "max_segment_seconds",
+          "name": "max_segment_seconds",
+          "type": "FLOAT",
+          "widget": {
+            "name": "max_segment_seconds"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "min_segment_seconds",
+          "name": "min_segment_seconds",
+          "type": "FLOAT",
+          "widget": {
+            "name": "min_segment_seconds"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "cut_on_sections",
+          "name": "cut_on_sections",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "cut_on_sections"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "seed",
+          "name": "seed",
+          "type": "INT",
+          "widget": {
+            "name": "seed"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "plan",
+          "name": "plan",
+          "type": "MV_PLAN",
+          "links": [
+            4,
+            9
+          ]
+        },
+        {
+          "localized_name": "report",
+          "name": "report",
+          "type": "STRING",
+          "links": [
+            6
+          ]
+        },
+        {
+          "localized_name": "gen_fps",
+          "name": "gen_fps",
+          "type": "FLOAT",
+          "links": null
+        },
+        {
+          "localized_name": "context_length",
+          "name": "context_length",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "localized_name": "segment_count",
+          "name": "segment_count",
+          "type": "INT",
+          "links": null
+        }
+      ],
+      "title": "Segment plan",
+      "properties": {
+        "Node name for S&R": "MVADSegmentPlan"
+      },
+      "widgets_values": [
+        "bar_aligned",
+        16,
+        12.5,
+        512,
+        512,
+        24,
+        4,
+        true,
+        1,
+        "fixed"
+      ]
+    },
+    {
+      "id": 5,
+      "type": "MVADPromptSchedule",
+      "pos": [
+        820,
+        582
+      ],
+      "size": [
+        400,
+        470
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "plan",
+          "name": "plan",
+          "type": "MV_PLAN",
+          "link": 4
+        },
+        {
+          "localized_name": "analysis",
+          "name": "analysis",
+          "type": "MV_ANALYSIS",
+          "link": 5
+        },
+        {
+          "localized_name": "master_prompt",
+          "name": "master_prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "master_prompt"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "look",
+          "name": "look",
+          "type": "STRING",
+          "widget": {
+            "name": "look"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "bars_per_keyframe",
+          "name": "bars_per_keyframe",
+          "type": "INT",
+          "widget": {
+            "name": "bars_per_keyframe"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "hard_cuts",
+          "name": "hard_cuts",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "hard_cuts"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "seed",
+          "name": "seed",
+          "type": "INT",
+          "widget": {
+            "name": "seed"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "framings",
+          "name": "framings",
+          "shape": 7,
+          "type": "STRING",
+          "widget": {
+            "name": "framings"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "plan",
+          "name": "plan",
+          "type": "MV_PLAN",
+          "links": [
+            19,
+            20
+          ]
+        },
+        {
+          "localized_name": "schedule_preview",
+          "name": "schedule_preview",
+          "type": "STRING",
+          "links": [
+            7
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MVADPromptSchedule"
+      },
+      "widgets_values": [
+        "a chrome sedan driving through neon rain in a cyberpunk city",
+        "cinematic, volumetric light, wet asphalt reflections, 35mm film grain",
+        2,
+        false,
+        1,
+        "fixed",
+        ""
+      ],
+      "title": "Prompt travel schedule"
+    },
+    {
+      "id": 6,
+      "type": "MVADCurvePreview",
+      "pos": [
+        1640,
+        582
+      ],
+      "size": [
+        340,
+        255.59375
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "analysis",
+          "name": "analysis",
+          "type": "MV_ANALYSIS",
+          "link": 8
+        },
+        {
+          "localized_name": "plan",
+          "name": "plan",
+          "type": "MV_PLAN",
+          "link": 9
+        },
+        {
+          "localized_name": "motion_low",
+          "name": "motion_low",
+          "type": "FLOAT",
+          "widget": {
+            "name": "motion_low"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "motion_high",
+          "name": "motion_high",
+          "type": "FLOAT",
+          "widget": {
+            "name": "motion_high"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "coherence_low",
+          "name": "coherence_low",
+          "type": "FLOAT",
+          "widget": {
+            "name": "coherence_low"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "coherence_high",
+          "name": "coherence_high",
+          "type": "FLOAT",
+          "widget": {
+            "name": "coherence_high"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "band",
+          "name": "band",
+          "type": "COMBO",
+          "widget": {
+            "name": "band"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "motion",
+          "name": "motion",
+          "type": "FLOATS",
+          "links": null
+        },
+        {
+          "localized_name": "coherence",
+          "name": "coherence",
+          "type": "FLOATS",
+          "links": null
+        },
+        {
+          "localized_name": "report",
+          "name": "report",
+          "type": "STRING",
+          "links": [
+            10
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MVADCurvePreview"
+      },
+      "widgets_values": [
+        0.75,
+        1.35,
+        0,
+        0.55,
+        "kick"
+      ],
+      "title": "Motion and coherence curves"
+    },
+    {
+      "id": 7,
+      "type": "PreviewAny",
+      "pos": [
+        450,
+        582
+      ],
+      "size": [
+        320,
+        250
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "source",
+          "name": "source",
+          "type": "*",
+          "link": 6
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "STRING",
+          "name": "STRING",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "title": "Show segment plan report",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.27.0",
+        "Node name for S&R": "PreviewAny"
+      },
+      "widgets_values": [
+        null,
+        null,
+        false
+      ]
+    },
+    {
+      "id": 8,
+      "type": "PreviewAny",
+      "pos": [
+        1270,
+        582
+      ],
+      "size": [
+        320,
+        250
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "source",
+          "name": "source",
+          "type": "*",
+          "link": 7
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "STRING",
+          "name": "STRING",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "title": "Show prompt schedule",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.27.0",
+        "Node name for S&R": "PreviewAny"
+      },
+      "widgets_values": [
+        null,
+        null,
+        false
+      ]
+    },
+    {
+      "id": 9,
+      "type": "PreviewAny",
+      "pos": [
+        2030,
+        582
+      ],
+      "size": [
+        320,
+        230
+      ],
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "source",
+          "name": "source",
+          "type": "*",
+          "link": 10
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "STRING",
+          "name": "STRING",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "title": "Show curve report",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.27.0",
+        "Node name for S&R": "PreviewAny"
+      },
+      "widgets_values": [
+        null,
+        null,
+        false
+      ]
+    },
+    {
+      "id": 10,
+      "type": "CheckpointLoaderSimple",
+      "pos": [
+        60,
+        1188
+      ],
+      "size": [
+        380,
+        127.59375
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "ckpt_name",
+          "name": "ckpt_name",
+          "type": "COMBO",
+          "widget": {
+            "name": "ckpt_name"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "MODEL",
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            13
+          ]
+        },
+        {
+          "localized_name": "CLIP",
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            23
+          ]
+        },
+        {
+          "localized_name": "VAE",
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            24
+          ]
+        }
+      ],
+      "title": "Load SD1.5 checkpoint",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.27.0",
+        "Node name for S&R": "CheckpointLoaderSimple"
+      },
+      "widgets_values": [
+        "DreamShaper_8_pruned.safetensors"
+      ]
+    },
+    {
+      "id": 11,
+      "type": "LoraLoaderModelOnly",
+      "pos": [
+        490,
+        1188
+      ],
+      "size": [
+        380,
+        140
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "model",
+          "name": "model",
+          "type": "MODEL",
+          "link": 13
+        },
+        {
+          "localized_name": "lora_name",
+          "name": "lora_name",
+          "type": "COMBO",
+          "widget": {
+            "name": "lora_name"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "strength_model",
+          "name": "strength_model",
+          "type": "FLOAT",
+          "widget": {
+            "name": "strength_model"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "MODEL",
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            22
+          ]
+        }
+      ],
+      "title": "Load LoRA: AnimateLCM",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.27.0",
+        "Node name for S&R": "LoraLoaderModelOnly"
+      },
+      "widgets_values": [
+        "AnimateLCM_sd15_t2v_lora.safetensors",
+        1
+      ]
+    },
+    {
+      "id": 13,
+      "type": "MVAssembleVideo",
+      "pos": [
+        530,
+        1624
+      ],
+      "size": [
+        360,
+        251.5625
+      ],
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "shots",
+          "name": "shots",
+          "type": "MV_SHOTS",
+          "link": 25
+        },
+        {
+          "localized_name": "audio",
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 18
+        },
+        {
+          "localized_name": "plan",
+          "name": "plan",
+          "type": "MV_PLAN",
+          "link": 19
+        },
+        {
+          "localized_name": "filename_prefix",
+          "name": "filename_prefix",
+          "type": "STRING",
+          "widget": {
+            "name": "filename_prefix"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "audio_bitrate",
+          "name": "audio_bitrate",
+          "type": "STRING",
+          "widget": {
+            "name": "audio_bitrate"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "reencode",
+          "name": "reencode",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "reencode"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "crf",
+          "name": "crf",
+          "type": "INT",
+          "widget": {
+            "name": "crf"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "path",
+          "name": "path",
+          "type": "STRING",
+          "links": null
+        },
+        {
+          "localized_name": "report",
+          "name": "report",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MVAssembleVideo"
+      },
+      "widgets_values": [
+        "musicvideo/ad_final",
+        "320k",
+        false,
+        16
+      ],
+      "title": "Assemble music video"
+    },
+    {
+      "id": 14,
+      "type": "Note",
+      "pos": [
+        1180,
+        106
+      ],
+      "size": [
+        460,
+        340
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "Same analysis as the shot-based stack. Rigid grid, one tempo, zero drift.\n\nIf the picture turns over off the beat, the knobs are downbeat_offset (whole\nbeats within the bar) and phase_offset_beats (slides the whole grid, takes\nfractions). The report prints the lock score: 1.0 is chance, below 1.6 the\ngrid is not locked."
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 15,
+      "type": "Note",
+      "pos": [
+        2400,
+        582
+      ],
+      "size": [
+        460,
+        470
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "WHAT MAKES THIS DIFFERENT FROM THE SHOT STACK.\n\nThere, each cut is an independent clip. Here the picture is one continuous\ndiffusion and the music drives how much it moves and how tightly it holds.\n\n  energy -> motion scale     louder moves more\n  energy -> context reuse    quiet holds still, loud is free to change\n  bars   -> prompt keyframes the picture turns over on the bar\n\nAnimateDiff has no cut. hard_cuts writes each prompt index with a trailing\ncolon, which tells ADE to hold rather than interpolate: the picture turns\nover in a frame or two instead of dissolving. That is as close as it gets,\nand the crossfade is what the technique is actually good at.\n\nFRAME RATE. bar_aligned picks a generation rate that puts one bar on exactly\ncontext_length frames, so the model's attention window and the musical phrase\nare the same thing. At 121.03 BPM that is 8.07 fps and 1574 frames for the\nwhole track, against 4876 for the shot stack at 25 fps. Deliver at a higher\nrate by interpolating the assembled video, not by generating more frames."
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 16,
+      "type": "Note",
+      "pos": [
+        920,
+        1188
+      ],
+      "size": [
+        460,
+        300
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "AnimateLCM, so few steps and low cfg: 8 steps, cfg 1.8, lcm sampler,\nsgm_uniform. The LoRA is not optional, it is what makes 8 steps work.\n\nbeta_schedule must be sqrt_linear (AnimateDiff) for an SD1.5 motion module.\n\nThe motion module itself is loaded inside the expansion, not on the canvas,\nbecause it is per-segment."
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 17,
+      "type": "Note",
+      "pos": [
+        940,
+        1624
+      ],
+      "size": [
+        460,
+        620
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "COHERENCE IS THE INVERSE OF ENERGY, ON PURPOSE. Context reuse holds the\npicture steady by leaning on the previous window, so it belongs in the quiet\npassages. Applying it during a loud passage fights the motion curve and gives\na video that strains without moving. Measured correlation -0.72.\n\nMOTION RANGE IS NARROW. 1.0 is the model's own amount of movement. Past about\n1.5 the motion module stops producing motion and starts producing smear.\n\nlimit renders the first N segments. 0 is the whole song. Segments are written\nto disk as they finish, so a failure late in the track does not cost the run.\n\ndecode_batch is where this stack runs out of memory, not sampling. A whole\nsegment of frames decoded at once is the thing that will not fit."
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 18,
+      "type": "MVADRenderSegments",
+      "pos": [
+        60,
+        1624
+      ],
+      "size": [
+        420,
+        859.5625
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "plan",
+          "name": "plan",
+          "type": "MV_PLAN",
+          "link": 20
+        },
+        {
+          "localized_name": "analysis",
+          "name": "analysis",
+          "type": "MV_ANALYSIS",
+          "link": 21
+        },
+        {
+          "localized_name": "model",
+          "name": "model",
+          "type": "MODEL",
+          "link": 22
+        },
+        {
+          "localized_name": "clip",
+          "name": "clip",
+          "type": "CLIP",
+          "link": 23
+        },
+        {
+          "localized_name": "vae",
+          "name": "vae",
+          "type": "VAE",
+          "link": 24
+        },
+        {
+          "localized_name": "motion_model_name",
+          "name": "motion_model_name",
+          "type": "STRING",
+          "widget": {
+            "name": "motion_model_name"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "negative_prompt",
+          "name": "negative_prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "negative_prompt"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "steps",
+          "name": "steps",
+          "type": "INT",
+          "widget": {
+            "name": "steps"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "cfg",
+          "name": "cfg",
+          "type": "FLOAT",
+          "widget": {
+            "name": "cfg"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "sampler_name",
+          "name": "sampler_name",
+          "type": "COMBO",
+          "widget": {
+            "name": "sampler_name"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "scheduler",
+          "name": "scheduler",
+          "type": "COMBO",
+          "widget": {
+            "name": "scheduler"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "beta_schedule",
+          "name": "beta_schedule",
+          "type": "COMBO",
+          "widget": {
+            "name": "beta_schedule"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "context_length",
+          "name": "context_length",
+          "type": "INT",
+          "widget": {
+            "name": "context_length"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "context_overlap",
+          "name": "context_overlap",
+          "type": "INT",
+          "widget": {
+            "name": "context_overlap"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "fuse_method",
+          "name": "fuse_method",
+          "type": "COMBO",
+          "widget": {
+            "name": "fuse_method"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "motion_low",
+          "name": "motion_low",
+          "type": "FLOAT",
+          "widget": {
+            "name": "motion_low"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "motion_high",
+          "name": "motion_high",
+          "type": "FLOAT",
+          "widget": {
+            "name": "motion_high"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "coherence_mode",
+          "name": "coherence_mode",
+          "type": "COMBO",
+          "widget": {
+            "name": "coherence_mode"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "coherence_low",
+          "name": "coherence_low",
+          "type": "FLOAT",
+          "widget": {
+            "name": "coherence_low"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "coherence_high",
+          "name": "coherence_high",
+          "type": "FLOAT",
+          "widget": {
+            "name": "coherence_high"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "naive_reuse_strength",
+          "name": "naive_reuse_strength",
+          "type": "FLOAT",
+          "widget": {
+            "name": "naive_reuse_strength"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "energy_band",
+          "name": "energy_band",
+          "type": "COMBO",
+          "widget": {
+            "name": "energy_band"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "decode_batch",
+          "name": "decode_batch",
+          "type": "INT",
+          "widget": {
+            "name": "decode_batch"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "output_prefix",
+          "name": "output_prefix",
+          "type": "STRING",
+          "widget": {
+            "name": "output_prefix"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "crf",
+          "name": "crf",
+          "type": "INT",
+          "widget": {
+            "name": "crf"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "limit",
+          "name": "limit",
+          "type": "INT",
+          "widget": {
+            "name": "limit"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "segments",
+          "name": "segments",
+          "type": "MV_SHOTS",
+          "links": [
+            25
+          ]
+        }
+      ],
+      "title": "Render segments",
+      "properties": {
+        "Node name for S&R": "MVADRenderSegments"
+      },
+      "widgets_values": [
+        "AnimateLCM_sd15_t2v.ckpt",
+        "watermark, text, blurry, low quality, deformed, extra limbs",
+        8,
+        1.8,
+        "lcm",
+        "sgm_uniform",
+        "sqrt_linear (AnimateDiff)",
+        16,
+        4,
+        "pyramid",
+        0.75,
+        1.35,
+        "effect_multival",
+        0.82,
+        1,
+        0.4,
+        "kick",
+        16,
+        "musicvideo/ad_segments",
+        12,
+        0
+      ]
+    }
+  ],
+  "links": [
+    [
+      1,
+      1,
+      0,
+      2,
+      0,
+      "AUDIO"
+    ],
+    [
+      2,
+      2,
+      0,
+      4,
+      0,
+      "MV_ANALYSIS"
+    ],
+    [
+      3,
+      2,
+      1,
+      3,
+      0,
+      "STRING"
+    ],
+    [
+      4,
+      4,
+      0,
+      5,
+      0,
+      "MV_PLAN"
+    ],
+    [
+      5,
+      2,
+      0,
+      5,
+      1,
+      "MV_ANALYSIS"
+    ],
+    [
+      6,
+      4,
+      1,
+      7,
+      0,
+      "STRING"
+    ],
+    [
+      7,
+      5,
+      1,
+      8,
+      0,
+      "STRING"
+    ],
+    [
+      8,
+      2,
+      0,
+      6,
+      0,
+      "MV_ANALYSIS"
+    ],
+    [
+      9,
+      4,
+      0,
+      6,
+      1,
+      "MV_PLAN"
+    ],
+    [
+      10,
+      6,
+      2,
+      9,
+      0,
+      "STRING"
+    ],
+    [
+      13,
+      10,
+      0,
+      11,
+      0,
+      "MODEL"
+    ],
+    [
+      18,
+      1,
+      0,
+      13,
+      1,
+      "AUDIO"
+    ],
+    [
+      19,
+      5,
+      0,
+      13,
+      2,
+      "MV_PLAN"
+    ],
+    [
+      20,
+      5,
+      0,
+      18,
+      0,
+      "MV_PLAN"
+    ],
+    [
+      21,
+      2,
+      0,
+      18,
+      1,
+      "MV_ANALYSIS"
+    ],
+    [
+      22,
+      11,
+      0,
+      18,
+      2,
+      "MODEL"
+    ],
+    [
+      23,
+      10,
+      1,
+      18,
+      3,
+      "CLIP"
+    ],
+    [
+      24,
+      10,
+      2,
+      18,
+      4,
+      "VAE"
+    ],
+    [
+      25,
+      18,
+      0,
+      13,
+      0,
+      "MV_SHOTS"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 1,
+      "title": "1. Analyse the song",
+      "bounding": [
+        30,
+        40,
+        1640,
+        436
+      ],
+      "color": "#3f5159",
+      "flags": {}
+    },
+    {
+      "id": 2,
+      "title": "2. Plan segments, prompt travel and curves",
+      "bounding": [
+        30,
+        516,
+        2860,
+        566
+      ],
+      "color": "#3f5952",
+      "flags": {}
+    },
+    {
+      "id": 3,
+      "title": "3. Models",
+      "bounding": [
+        30,
+        1122,
+        1380,
+        396
+      ],
+      "color": "#59503f",
+      "flags": {}
+    },
+    {
+      "id": 4,
+      "title": "4. Render and assemble",
+      "bounding": [
+        30,
+        1558,
+        1400,
+        716
+      ],
+      "color": "#59413f",
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.5080265370483997,
+      "offset": [
+        256.665441498888,
+        261.7323835980564
+      ]
+    }
+  },
+  "version": 0.4
+}

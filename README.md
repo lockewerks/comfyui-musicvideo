@@ -10,6 +10,11 @@ press, a video the full length of the track.
 Shot lengths follow the music: loud sections cut fast, quiet ones hold. Cuts land
 on bars, never on a timer.
 
+> **Branch `animatediff-t2v`** carries a second, parallel stack: AnimateDiff
+> text-to-video, where the picture is one continuous diffusion and the music
+> drives movement and coherence instead of cuts. It is deliberately unmerged.
+> See [docs/animatediff-stack.md](docs/animatediff-stack.md) on that branch.
+
 ## Install
 
 ```

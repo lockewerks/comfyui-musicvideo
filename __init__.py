@@ -15,6 +15,12 @@ from .nodes.nodes_render import (
     MVShotsBegin,
     MVWriteShot,
 )
+from .nodes.nodes_animatediff import (
+    MVADCurvePreview,
+    MVADPromptSchedule,
+    MVADRenderSegments,
+    MVADSegmentPlan,
+)
 
 NODE_CLASS_MAPPINGS = {
     "MVAnalyzeAudio": MVAnalyzeAudio,
@@ -27,6 +33,12 @@ NODE_CLASS_MAPPINGS = {
     "MVRenderStills": MVRenderStills,
     "MVRenderShots": MVRenderShots,
     "MVAssembleVideo": MVAssembleVideo,
+    # AnimateDiff text-to-video stack. Continuous picture driven by the music,
+    # as opposed to the shot-based stack above.
+    "MVADSegmentPlan": MVADSegmentPlan,
+    "MVADPromptSchedule": MVADPromptSchedule,
+    "MVADCurvePreview": MVADCurvePreview,
+    "MVADRenderSegments": MVADRenderSegments,
     # Internal, created by the expansion nodes rather than placed by hand.
     "MVShotsBegin": MVShotsBegin,
     "MVWriteShot": MVWriteShot,
@@ -44,6 +56,10 @@ NODE_DISPLAY_NAME_MAPPINGS = {
     "MVRenderStills": "Render start frames",
     "MVRenderShots": "Render shots",
     "MVAssembleVideo": "Assemble music video",
+    "MVADSegmentPlan": "Segment plan (AnimateDiff)",
+    "MVADPromptSchedule": "Prompt travel schedule",
+    "MVADCurvePreview": "Motion and coherence curves",
+    "MVADRenderSegments": "Render segments (AnimateDiff)",
     "MVShotsBegin": "Shot collection (begin)",
     "MVWriteShot": "Write shot",
     "MVCollectImage": "Collect image",
