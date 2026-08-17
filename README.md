@@ -141,8 +141,9 @@ cost the run.
   `ltxv-2b-0.9.8-distilled.safetensors` and `t5xxl_fp8_e4m3fn_scaled.safetensors`
 
 Measured on an RTX 4090 24 GB: a 195 second track planned to 58 shots and 4876
-frames at 1280x704, and rendered in about 17 minutes, peaking at 22.0 GB of VRAM
-during the start-frame pass.
+frames at 1280x704, and rendered in about 17 minutes, peaking at 23.1 GB of VRAM
+of 24.1 GB during the start-frame pass. The video pass peaks lower, at 21.7 GB,
+so the start frames are the binding constraint on whether this fits a card.
 
 ## Known limits
 
