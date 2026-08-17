@@ -1,0 +1,17 @@
+[project]
+name = "comfyui-musicvideo"
+description = "Beat-driven music video editing in ComfyUI: analyse a song, cut shots on bar lines, render and assemble."
+version = "0.1.0"
+license = { file = "LICENSE" }
+requires-python = ">=3.10"
+# numpy and scipy ship with ComfyUI, and ffmpeg is called as a subprocess.
+# Nothing else is needed: no librosa, no madmom, no compiled audio stack.
+dependencies = []
+
+[project.urls]
+Repository = "https://github.com/lockewerks/comfyui-musicvideo"
+
+[tool.comfy]
+PublisherId = "lockewerks"
+DisplayName = "ComfyUI Music Video"
+Icon = ""

@@ -1,0 +1,33 @@
+__pycache__/
+*.pyc
+*.pyo
+
+# Renders. The repo describes them, it does not carry them.
+*.mp4
+*.webm
+*.mov
+*.mkv
+*.png
+*.jpg
+*.jpeg
+*.webp
+
+# Model weights never belong in here.
+*.safetensors
+*.ckpt
+*.pt
+
+# Audio, except the demo track, which is committed deliberately.
+*.mp3
+*.wav
+*.flac
+*.m4a
+!examples/superfunk.mp3
+
+# Scratch
+scratch/
+*.tmp
+
+Thumbs.db
+desktop.ini
+.DS_Store
