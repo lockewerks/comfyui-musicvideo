@@ -1,6 +1,17 @@
-# comfyui-musicvideo
+<div align="center">
 
-Cut a music video to the beat, inside ComfyUI.
+<img src="assets/comfyui-musicvideo.ico" width="96" alt="ComfyUI Music Video">
+
+# ComfyUI Music Video
+
+**Cut a music video to the beat, inside ComfyUI.**
+
+[![license](https://img.shields.io/badge/license-MIT-d6262a?style=flat-square)](LICENSE)
+![platform](https://img.shields.io/badge/platform-ComfyUI-d6262a?style=flat-square)
+
+</div>
+
+---
 
 Give it a song and one master prompt. It analyses the audio, plans an edit that
 cuts on bar lines, expands the prompt into a different shot for every cut,
